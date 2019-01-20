@@ -1,1 +1,4 @@
-__version__ = "0.0.1"
+from .cli import create_cli
+from .version import get_version
+
+__version__ = get_version()
