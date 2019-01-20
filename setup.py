@@ -13,7 +13,7 @@ CHANGELOG = f"{GITHUB}/blob/master/CHANGELOG.md"
 
 setuptools.setup(
     name="boca",
-    version="0.0.0",
+    version="0.0.1",
     author="Florimond Manca",
     author_email="florimond.manca@gmail.com",
     description=description,
