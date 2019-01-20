@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "64f20c277309676d6c7182619d2356c04c4d6b05f26ec4ee91dcf5c67b64256f"
+            "sha256": "b188ac1db9ee3f34a393382394661eba532fc220e063a0fa13da69d6e3af2524"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -47,6 +47,10 @@
             ],
             "version": "==18.2.0"
         },
+        "boca": {
+            "editable": true,
+            "path": "."
+        },
         "bumpversion": {
             "hashes": [
                 "sha256:6744c873dd7aafc24453d8b6a1a0d6d109faf63cd0cd19cb78fd46e74932c77e",
@@ -54,6 +58,14 @@
             ],
             "index": "pypi",
             "version": "==0.5.3"
+        },
+        "click": {
+            "hashes": [
+                "sha256:2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13",
+                "sha256:5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+            ],
+            "index": "pypi",
+            "version": "==7.0"
         },
         "isort": {
             "hashes": [

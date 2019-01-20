@@ -8,6 +8,7 @@ pytest = "*"
 bumpversion = "*"
 pylint = "*"
 rope = "*"
+boca = {editable = true,path = "."}
 
 [packages]
 click = "*"

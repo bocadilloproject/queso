@@ -39,7 +39,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Topic :: Utilities",
-        "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Code Generators",
     ],
+    entry_points={"console_scripts": ["boca=boca.__main__:cli"]},
 )
