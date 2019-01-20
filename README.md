@@ -2,6 +2,7 @@
 [![pypi](https://img.shields.io/pypi/v/boca.svg)][pypi]
 [![travis](https://img.shields.io/travis/bocadilloproject/boca.svg)](https://travis-ci.org/bocadilloproject/boca)
 [![black](https://img.shields.io/badge/code_style-black-000000.svg)](https://github.com/ambv/black)
+[![codecov](https://codecov.io/gh/bocadilloproject/boca/branch/master/graph/badge.svg)](https://codecov.io/gh/bocadilloproject/boca)
 [![license](https://img.shields.io/pypi/l/boca.svg)][pypi]
 
 [pypi]: https://pypi.org/project/boca
