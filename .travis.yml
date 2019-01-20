@@ -1,0 +1,23 @@
+language: python
+
+python: "3.6"
+
+cache: pip
+
+jobs:
+  include:
+    - stage: test
+      install:
+        - pip install .
+      script: pytest
+
+    - stage: deploy to pypi
+      if: tag IS present
+      script: skip
+      deploy:
+        - provider: pypi
+          distributions: "sdist bdist_wheel"
+          username: $PYPI_USERNAME
+          password: $PYPI_PASSWORD
+          on:
+            tags: true
