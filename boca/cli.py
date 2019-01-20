@@ -1,6 +1,6 @@
 import click
 
-from .commands import version
+from . import commands
 from .custom import CustomCommandsGroup
 from .version import get_version
 
@@ -19,11 +19,13 @@ def create_cli() -> click.Command:
     cli (click.Command): an instance of the `boca` CLI.
     """
 
-    @click.group(cls=CustomCommandsGroup)
+    @click.group(name="boca", cls=CustomCommandsGroup)
     @click.version_option(get_version(), *VERSION_FLAGS, **VERSION_KWARGS)
     def cli():
         pass
 
-    cli.add_command(version)
+    for name, value in vars(commands).items():
+        if isinstance(value, click.Command):
+            cli.add_command(value)
 
     return cli
