@@ -1,5 +1,8 @@
 from subprocess import call
 
+import pytest
 
-def test_invoke():
-    assert call(["boca"]) == 0
+
+@pytest.mark.parametrize("command", [["boca"], ["python", "-m", "boca"]])
+def test_invoke(command):
+    assert call(command) == 0
