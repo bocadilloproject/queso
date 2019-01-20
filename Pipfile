@@ -9,6 +9,7 @@ bumpversion = "*"
 pylint = "*"
 rope = "*"
 boca = {editable = true,path = "."}
+pytest-cov = "*"
 
 [packages]
 click = "*"

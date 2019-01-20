@@ -1,0 +1,16 @@
+[run]
+branch = True
+source = boca
+
+[report]
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == "__main__":
+    if debug:
+ignore_errors = True
+omit =
+    setup.py
+    tests/*
+    boca/scaffolding/*
+    _*.py

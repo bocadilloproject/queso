@@ -9,7 +9,9 @@ jobs:
     - stage: test
       install:
         - pip install .
-      script: pytest
+        - pip install codecov pytest-cov
+      script: pytest --cov=./
+      after_success: codecov
 
     - stage: deploy to pypi
       if: tag IS present
