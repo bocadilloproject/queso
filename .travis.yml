@@ -9,6 +9,7 @@ jobs:
     - stage: test
       install:
         - pip install .
+        - pip install -r requirements-ci.txt
         - pip install codecov pytest-cov
       script: pytest --cov=./
       after_success: codecov
