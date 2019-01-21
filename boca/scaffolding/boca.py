@@ -1,14 +1,5 @@
-"""Custom Bocadillo commands.
-
-Use Click to build custom commands. For documentation, see:
-https://click.palletsprojects.com
-"""
+"""Custom Bocadillo commands."""
 import click
 
-
-@click.group()
-def cli():
-    pass
-
-
-# Write your @cli.command() functions below.
+# Write your Click commands and groups below.
+# For documentation on Click, see: https://click.palletsprojects.com

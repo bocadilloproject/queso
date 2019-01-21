@@ -2,7 +2,7 @@ import click
 
 
 class FileGroup(click.Group):
-    """A Click [MultiCommand] that loads a group of commands from a file.
+    """A Click [MultiCommand] that loads commands declared in a file.
 
     ::: warning
     You should not need to interact with this class directly.
@@ -12,8 +12,8 @@ class FileGroup(click.Group):
 
     # Parameters
     path (str):
-        Path to a Python module declaring at least one Click group, from which
-        extra commands will be obtained.
+        Path to a Python module declaring Click commands (declared with
+        `@click.command()` or `@click.group()`).
 
     """
 
@@ -33,13 +33,6 @@ class FileGroup(click.Group):
         else:
             eval(code, namespace, namespace)
 
-        groups = (
-            val for val in namespace.values() if isinstance(val, click.Group)
-        )
-        group = next(groups, None)
-        if group is None:
-            raise ValueError(
-                f"Expected at least one group in {path}, none found."
-            )
-        for name, cmd in group.commands.items():
-            self.add_command(cmd, name)
+        for value in namespace.values():
+            if isinstance(value, click.Command):
+                self.add_command(value)
