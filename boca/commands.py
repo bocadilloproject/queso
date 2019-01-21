@@ -2,7 +2,8 @@ import os
 
 import click
 
-from . import scaffold, version as _version
+from . import scaffold
+from . import version as _version
 from .custom import get_custom_commands_path
 
 

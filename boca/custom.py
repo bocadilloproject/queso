@@ -2,7 +2,6 @@ import os
 
 from .groups import FileGroup
 
-
 CUSTOM_COMMANDS_ENV_VAR = "BOCA_CUSTOM_COMMANDS"
 
 

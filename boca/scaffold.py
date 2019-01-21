@@ -1,4 +1,4 @@
-from os.path import join, dirname, abspath
+from os.path import abspath, dirname, join
 
 SCAFFOLD_DIR = join(dirname(abspath(__file__)), "scaffolding")
 

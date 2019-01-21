@@ -1,7 +1,8 @@
 import pytest
-
 from bocadillo import __version__ as bocadillo_version
-from boca import create_cli, __version__ as boca_version
+
+from boca import __version__ as boca_version
+from boca import create_cli
 from boca.version import get
 
 flags = ("-v", "-V", "--version", "version")

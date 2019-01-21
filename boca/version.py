@@ -1,8 +1,7 @@
-import sys
 import platform
+import sys
 from collections import namedtuple
 
-from importlib import import_module
 import click
 
 __version__ = "0.0.1"
