@@ -2,21 +2,15 @@ import os
 
 import click
 
-from . import scaffold
-from .version import get_version
+from . import scaffold, version as _version
 from .custom import get_custom_commands_path
-
-VERSION_KWARGS = {"prog_name": "Bocadillo", "message": "%(prog)s v%(version)s"}
-VERSION_FLAGS = ("-v", "-V", "--version")
 
 
 @click.command()
-def version():
+@click.pass_context
+def version(ctx):
     """Show the version and exit."""
-    click.echo(
-        VERSION_KWARGS["message"]
-        % {"prog": VERSION_KWARGS["prog_name"], "version": get_version()}
-    )
+    ctx.forward(_version.show)
 
 
 @click.command(name="init:custom")

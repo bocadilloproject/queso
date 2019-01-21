@@ -10,6 +10,7 @@ pylint = "*"
 rope = "*"
 boca = {editable = true,path = "."}
 pytest-cov = "*"
+bocadillo = "*"
 
 [packages]
 click = "*"

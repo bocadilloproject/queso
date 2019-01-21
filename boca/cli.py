@@ -2,10 +2,7 @@ import click
 
 from . import commands
 from .custom import CustomCommandsGroup
-from .version import get_version
-
-VERSION_KWARGS = {"prog_name": "Bocadillo", "message": "%(prog)s v%(version)s"}
-VERSION_FLAGS = ("-v", "-V", "--version")
+from .version import version_option
 
 
 def create_cli() -> click.Command:
@@ -20,11 +17,11 @@ def create_cli() -> click.Command:
     """
 
     @click.group(name="boca", cls=CustomCommandsGroup)
-    @click.version_option(get_version(), *VERSION_FLAGS, **VERSION_KWARGS)
+    @version_option("-v", "-V", "--version")
     def cli():
         pass
 
-    for name, value in vars(commands).items():
+    for value in vars(commands).values():
         if isinstance(value, click.Command):
             cli.add_command(value)
 
