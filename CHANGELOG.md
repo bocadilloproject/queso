@@ -16,8 +16,9 @@ Boca adheres to [Semantic Versioning](https://semver.org).
 - `init:custom` command.
 - Custom commands:
     - Loaded from the `BOCA_CUSTOM_COMMANDS` file, defaulting to `boca.py` in the current directory.
-    - All `@click.command()` or `@click.group()` items loaded in the file are
-    picked up and registered on the CLI.
+    - All `click.Command` objects declared in the file are mounted onto `boca`.
+    This includes commands declared with `@click.command()`, groups declared
+    with `@click.group()` and any other instance of a subclass of `click.Command`.
 
 ## v0.0.1 - 2018-01-20
 
