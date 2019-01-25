@@ -60,14 +60,15 @@ module.exports = {
                     children: [
                         ['/guide/', 'Introduction'],
                         '/guide/installation',
+                        '/guide/basics',
                     ],
                 },
                 {
-                    title: 'Usage',
+                    title: 'Techniques',
                     collapsable: false,
                     children: [
-                        '/guide/programmatic-usage',
                         '/guide/custom-commands',
+                        '/guide/programmatic-usage',
                     ]
                 },
             ],
