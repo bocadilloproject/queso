@@ -21,7 +21,7 @@ pip install boca
 
 ## Documentation
 
-For usage guides, commands and API reference, visit our [documentation site][docs].
+For usage guides and reference, visit our [documentation site][docs].
 
 ## License
 
