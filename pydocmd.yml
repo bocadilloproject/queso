@@ -5,8 +5,6 @@ generate:
       - boca.cli+
   - utils.md:
       - boca.utils+
-  - version.md:
-      - boca.version+
 
 # Required by Pydoc-Markdown, but irrelevant to us.
 pages: []

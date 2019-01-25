@@ -1,5 +1,6 @@
 # Reference
 
+This document describes all public commands, functions, classes and modules in Boca.
 ## Command line usage
 
 ### Overview
@@ -120,48 +121,4 @@ __Example__
 >>> r.exit_code
 0
 ```
-
-###  boca.version
-
-
-
-####  Version
-
-
-```python
-Version(self, /, *args, **kwargs)
-```
-Version(boca, bocadillo)
-####  get
-
-
-```python
-get() -> boca.version.Version
-```
-Retrieve the application versions.
-
-__Returns__
-
-`versions (Versions)`:
-    Versions available at `versions.bocadillo` and `versions.boca`.
-
-__Raises__
-
-- `ModuleNotFoundError`: if Bocadillo is not installed.
-
-####  version_option
-
-
-```python
-version_option(*idens, **attrs)
-```
-Add a version option to the CLI.
-
-Immediately ends the program printing out the version number.
-
-Inspired from `click.version_option`.
-
-__Parameters__
-
-- __*idens (str)__: identifiers for the option. Defaults to `"--version"`.
 

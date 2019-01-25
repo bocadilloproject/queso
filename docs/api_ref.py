@@ -45,6 +45,11 @@ def main():
 
         _header(1, "Reference")
 
+        _text(
+            "This document describes all public commands, functions, "
+            "classes and modules in Boca."
+        )
+
         _header(2, "Command line usage")
 
         _header(3, "Overview")
