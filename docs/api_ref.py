@@ -1,25 +1,21 @@
-from typing import List, IO
+import shutil
 import subprocess
 from glob import glob
-from collections import namedtuple
-import shutil
+from typing import List
 
-import click
+import yaml
 
 from boca.cli import create_cli
 
 
-Section = namedtuple("Section", "title, body")
-
-
-def get_help(command: List[str]):
-    args = [*command, "--help"]
+def get_help(cmd: List[str]):
+    args = [*cmd, "--help"]
     result = subprocess.run(args, stdout=subprocess.PIPE)
     assert result.returncode == 0, result.returncode
     return "\n".join(["```", result.stdout.decode() + "```", ""])
 
 
-if __name__ == "__main__":
+def main():
     subprocess.call(["pydocmd", "generate"])
 
     cli = create_cli()
@@ -54,4 +50,10 @@ if __name__ == "__main__":
                     else:
                         _text(line, nl=False)
 
-    shutil.rmtree("docs/reference/api")
+    with open("pydocmd.yml") as cfg:
+        pydoc_config = yaml.safe_load(cfg)
+    shutil.rmtree(pydoc_config["gens_dir"])
+
+
+if __name__ == "__main__":
+    main()
