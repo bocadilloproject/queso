@@ -10,7 +10,7 @@ from .custom import get_custom_commands_path
 @click.command()
 @click.pass_context
 def version(ctx):
-    """Show the version and exit."""
+    """Show version information and exit."""
     ctx.forward(_version.show)
 
 

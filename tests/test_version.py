@@ -25,9 +25,9 @@ def test_invocations_have_the_same_output(runner):
 
 
 @pytest.mark.parametrize("flag", flags)
-def test_if_bocadillo_not_installed_then_fails(runner, flag):
+def test_if_bocadillo_not_installed_then_placeholder_used(runner, flag):
     get.simulate_module_not_found = True
     cli = create_cli()
     result = runner.invoke(cli, [flag])
-    assert result.exit_code == 1
-    assert f"could not import bocadillo" in result.output.lower()
+    assert result.exit_code == 0
+    assert "bocadillo: [not installed]" in result.output.lower()

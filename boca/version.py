@@ -6,7 +6,7 @@ import click
 
 __version__ = "0.0.1"
 
-Versions = namedtuple("Version", "boca bocadillo")
+Versions = namedtuple("Version", "boca, bocadillo")
 
 
 def get() -> Versions:
@@ -19,12 +19,17 @@ def get() -> Versions:
     # Raises
     ModuleNotFoundError: if Bocadillo is not installed.
     """
-    import bocadillo
+    try:
+        import bocadillo
 
-    if get.simulate_module_not_found:
-        raise ModuleNotFoundError("bocadillo")
+        if get.simulate_module_not_found:
+            raise ModuleNotFoundError("bocadillo")
+    except ModuleNotFoundError:
+        bocadillo_version = "[Not installed]"
+    else:
+        bocadillo_version = bocadillo.__version__
 
-    return Versions(boca=__version__, bocadillo=bocadillo.__version__)
+    return Versions(boca=__version__, bocadillo=bocadillo_version)
 
 
 # for testing
