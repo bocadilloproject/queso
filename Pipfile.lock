@@ -378,9 +378,9 @@
         },
         "uvicorn": {
             "hashes": [
-                "sha256:d9d6bb3e2f094650fda8b298b66fd02dcedc4880cc409b877cab06d676749046"
+                "sha256:8716ac06f07938ad96996340ad6077d8e4bce96f807a41d0a4a429d2c0f9f751"
             ],
-            "version": "==0.3.32"
+            "version": "==0.4.0"
         },
         "uvloop": {
             "hashes": [
