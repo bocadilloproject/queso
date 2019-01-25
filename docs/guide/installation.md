@@ -32,7 +32,7 @@ To verify that Boca has been correctly installed and made available to your `PAT
 
 ```bash
 $ boca -V
-Boca: 0.1.0
+Boca: 0.1.1
 Bocadillo: 0.10.0
 Python: 3.7.2
 OS: Darwin-18.2.0-x86_64-i386-64bit
