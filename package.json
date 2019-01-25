@@ -1,6 +1,6 @@
 {
   "name": "boca",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Tasty development tooling for Bocadillo",
   "scripts": {
     "start": "npm run docs:dev",
