@@ -8,3 +8,4 @@ __pycache__/
 *.db
 node_modules/
 .coverage
+docs/.vuepress/dist
