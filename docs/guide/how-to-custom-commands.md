@@ -1,62 +1,58 @@
-# How to write custom commands
+# Custom commands
 
-If you find yourself repeating certain tasks, you can automate them via custom `boca` commands.
+If you find yourself repeating certain tasks, you can automate them very easily via custom Boca commands.
 
 ## How custom commands are discovered
 
-> TODO
-
-## Generating a custom commands script
-
-To do so, use the `init:custom` command, which will generate the following file:
-
-```python
-# boca.py
-"""Custom Bocadillo commands.
-
-Use Click to build custom commands. For documentation, see:
-https://click.palletsprojects.com
-"""
-from bocadillo.ext import click
-
-
-@click.group()
-def cli():
-    pass
-
-# Write your @cli.command() functions below.
+Boca looks for custom commands in a `boca.py` script relative to the current working directory, as shown in the following example project structure:
 
 ```
+.
+├── api.py
+└── boca.py
+```
 
-The `cli` group will be picked up and its commands merged into `boca`, provided you are located at the same level than the custom commands script.
+Every `click.Command` object present in this file is mounted onto the root Boca command. For example, a custom `hello` command would be made available as `$ boca hello`.
 
-For example, let's add a `boca hello` command:
+::: tip
+You can customize which file is used for command discovery using the `BOCA_CUSTOM_COMMANDS` environment variable. It supports both absolute and relative paths.
+:::
+
+## Example
+
+Let's create a `boca.py` file at the root of our project directory and use Click to declare a simple `hello` command:
 
 ```python
 # boca.py
-@cli.command()
+import click
+
+@click.command()
 def hello():
-    """Show a friendly message."""
-    click.echo('Hello from a custom command!')
+    """Show a warm welcome message."""
+    click.echo("Hello, world!")
 ```
 
-Now see it in action:
+Once this is done, we're ready to use the `hello` command through Boca:
 
 ```
-$ ls
-app.py  boca.py
+$ boca hello
+Hello, world!
+```
+
+:tada:
+
+From here, the whole world of Click is open to us. For example, let's show the generated usage tips for our newly declared command:
+
+```
 $ boca hello --help
 Usage: boca hello [OPTIONS]
 
-  Show a friendly message.
+  Show a warm welcome message.
 
 Options:
   --help  Show this message and exit.
-
-$ boca hello
-Hi from a custom command!
 ```
 
-> **Tip**: the name of the custom commands file can be customized by setting the `BOCA_CUSTOM_COMMANDS_FILE` environment variable.
+You can make use of any Click feature to build commands that help you automate certain tasks. See also the official [Click documentation][click-docs].
 
-Of course, you can leverage Click's awesome features when building custom commands. See the [Click docs](https://click.palletsprojects.com) for more information.
+[click-docs]: https://click.palletsprojects.com

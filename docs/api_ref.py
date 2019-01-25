@@ -2,10 +2,13 @@ import shutil
 import subprocess
 from glob import glob
 from typing import List
+from os.path import join
+import inspect
 
 import yaml
 
 from boca.cli import create_cli
+from boca import constants
 
 
 def get_help(cmd: List[str]):
@@ -16,7 +19,19 @@ def get_help(cmd: List[str]):
 
 
 def main():
+    with open("pydocmd.yml") as cfg:
+        api_ref_dir = yaml.safe_load(cfg)["gens_dir"]
+
     subprocess.call(["pydocmd", "generate"])
+
+    with open(join(api_ref_dir, "constants.md"), "w") as constants_out:
+        constants_out.write("# boca.constants\n")
+        constants_out.write(
+            "This module contains various useful constants, listed below.\n"
+        )
+        constants_out.write(
+            "\n".join(["```python", inspect.getsource(constants) + "```", ""])
+        )
 
     cli = create_cli()
 
@@ -42,7 +57,7 @@ def main():
             _text("\n".join([command.__doc__ or "", get_help(["boca", name])]))
 
         _header(2, "Python modules")
-        for path in glob("docs/reference/api/*.md"):
+        for path in sorted(glob(join(api_ref_dir, "*.md"))):
             with open(path) as source:
                 for line in source:
                     if line.startswith("#"):
@@ -50,9 +65,7 @@ def main():
                     else:
                         _text(line, nl=False)
 
-    with open("pydocmd.yml") as cfg:
-        pydoc_config = yaml.safe_load(cfg)
-    shutil.rmtree(pydoc_config["gens_dir"])
+    shutil.rmtree(api_ref_dir)
 
 
 if __name__ == "__main__":
