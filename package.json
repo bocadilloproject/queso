@@ -1,0 +1,23 @@
+{
+  "name": "boca",
+  "version": "0.0.1",
+  "description": "Tasty development tooling for Bocadillo",
+  "scripts": {
+    "start": "npm run docs:dev",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bocadilloproject/boca.git"
+  },
+  "author": "Florimond Manca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bocadilloproject/boca/issues"
+  },
+  "homepage": "https://github.com/bocadilloproject/boca",
+  "dependencies": {
+    "vuepress": "^0.14.8"
+  }
+}
