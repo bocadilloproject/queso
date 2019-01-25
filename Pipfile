@@ -11,6 +11,7 @@ rope = "*"
 boca = {editable = true,path = "."}
 pytest-cov = "*"
 bocadillo = "*"
+pydoc-markdown = "*"
 
 [packages]
 click = "*"

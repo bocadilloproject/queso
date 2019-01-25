@@ -40,8 +40,8 @@ module.exports = {
                 link: '/guide/',
             },
             {
-                text: 'API Reference',
-                link: '/api/',
+                text: 'Reference',
+                link: '/reference/',
             },
             {
                 text: 'Changelog',
@@ -70,16 +70,8 @@ module.exports = {
                     ]
                 },
             ],
-            '/api/': [
-                {
-                    title: 'Python modules',
-                    collapsable: false,
-                    children: listDir('api').map(child => {
-                        const filename = child.split('/')[2];
-                        const displayName = filename.replace('.md', '.py');
-                        return [child, displayName];
-                    }),
-                },
+            '/reference/': [
+                '/reference/',
             ]
         },
     },

@@ -1,0 +1,15 @@
+site_name: "" # Irrelevant to us.
+
+generate:
+  - cli.md:
+      - boca.cli+
+  - version.md:
+      - boca.version+
+
+# Required by Pydoc-Markdown, but irrelevant to us.
+pages: []
+
+gens_dir: ./docs/reference/api
+
+# Render headers are Markdown tags rather than HTML <hX>
+headers: markdown
