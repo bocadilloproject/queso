@@ -63,10 +63,11 @@ module.exports = {
                     ],
                 },
                 {
-                    title: 'How-To',
+                    title: 'Usage',
                     collapsable: false,
                     children: [
-                        '/guide/how-to-custom-commands'
+                        '/guide/programmatic-usage',
+                        '/guide/custom-commands',
                     ]
                 },
             ],

@@ -3,7 +3,7 @@ from os.path import join
 
 import pytest
 
-from boca import create_cli
+from boca import create_cli, call_command
 from boca.custom import CUSTOM_COMMANDS_ENV_VAR
 
 from .utils import env
@@ -73,3 +73,11 @@ def test_no_commands_allowed(tmpdir):
     boca_dot_py = tmpdir.join("boca.py")
     boca_dot_py.write("import click")
     create_cli()
+
+
+def test_call_custom_command(custom_commands):
+    with env(CUSTOM_COMMANDS_ENV_VAR, custom_commands):
+        r = call_command("cats")
+        assert r.exit_code == 0
+        assert r.value is None
+        assert "Cats!" in r.output

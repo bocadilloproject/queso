@@ -14,6 +14,7 @@ Boca adheres to [Semantic Versioning](https://semver.org).
 
 - `version` command, also accessible using `-v`, `-V` and `--version` flags.
 - `init:custom` command.
+- Programmatic usage using the `call_command()` helper.
 
 ### Changed
 

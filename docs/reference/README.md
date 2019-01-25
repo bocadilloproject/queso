@@ -13,7 +13,7 @@ Options:
 
 Commands:
   init:custom  Generate files required to build custom commands.
-  version      Show the version and exit.
+  version      Show version information and exit.
 ```
 
 ### Built-in commands
@@ -33,11 +33,11 @@ Options:
 
 #### version
 
-Show the version and exit.
+Show version information and exit.
 ```
 Usage: boca version [OPTIONS]
 
-  Show the version and exit.
+  Show version information and exit.
 
 Options:
   --help  Show this message and exit.
@@ -73,6 +73,54 @@ This module contains various useful constants, listed below.
 CUSTOM_COMMANDS_ENV_VAR = "BOCA_CUSTOM_COMMANDS"
 DEFAULT_CUSTOM_COMMANDS = "boca.py"
 ```
+###  boca.utils
+
+
+
+####  CommandResult
+
+
+```python
+CommandResult(self, /, *args, **kwargs)
+```
+CommandResult(exit_code, value, output)
+####  call_command
+
+
+```python
+call_command(name: str, *args: str, capture_errors: bool = False, cli: click.core.Command = None) -> boca.utils.CommandResult
+```
+Call a command programmatically.
+
+Any output made by the command is captured and included in the result.
+
+__Parameters__
+
+- __name (str)__:
+    The name of the command to call, e.g. `"version"`.
+- __*args (str)__:
+    A series of command line parameters to be parsed.
+- __capture_errors (bool)__:
+    `True`, Click exceptions are silenced and written to the captured stdout. Note that other exceptions will still propagate. Defaults to `False`.
+- __cli (click.Command)__:
+    The Click CLI application instance to use. Defaults to `create_cli()`.
+
+__Returns__
+
+`result (CommandResult)`:
+    Holds the `exit_code` (int), its return `value`,
+    and the captured `output` (str).
+
+__Example__
+
+
+```python
+>>> from boca import call_command
+>>> r = call_command("version", "--help")
+>>> r.exit_code
+0
+```
+
 ###  boca.version
 
 

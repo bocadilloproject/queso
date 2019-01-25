@@ -3,6 +3,8 @@ site_name: "" # Irrelevant to us.
 generate:
   - cli.md:
       - boca.cli+
+  - utils.md:
+      - boca.utils+
   - version.md:
       - boca.version+
 
