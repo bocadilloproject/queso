@@ -2,7 +2,7 @@ import click
 
 from . import commands
 from .custom import CustomCommandsGroup
-from .version import version_option
+from .versions import version_option
 
 
 def create_cli() -> click.Command:

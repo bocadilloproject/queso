@@ -3,15 +3,15 @@ import os
 import click
 
 from . import scaffold
-from . import version as _version
+from .versions import get as get_versions
 from .custom import get_custom_commands_path
 
 
 @click.command()
-@click.pass_context
-def version(ctx):
+def version():
     """Show version information and exit."""
-    ctx.forward(_version.show)
+    versions = get_versions()
+    click.echo(str(versions))
 
 
 @click.command(name="init:custom")

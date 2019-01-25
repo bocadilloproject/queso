@@ -7,14 +7,28 @@ from boca import call_command
 
 def test_simple_call():
     r = call_command("version")
-    assert r.exit_code == r.value == 0
+    assert r.exit_code == 0
     assert "Boca: " in r.output
 
 
 def test_call_with_parameters():
     r = call_command("version", "--help")
-    assert r.exit_code == r.value == 0
+    assert r.exit_code == 0
     assert "Usage: boca version" in r.output
+
+
+def test_return_value():
+    @click.group()
+    def cli():
+        pass
+
+    @cli.command()
+    def forty_two():
+        return 42
+
+    r = call_command("forty-two", cli=cli)
+    assert r.exit_code == 0
+    assert r.value == 42
 
 
 def test_click_exceptions_are_propagated():

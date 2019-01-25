@@ -13,9 +13,6 @@ class CommandResult(NamedTuple):
     value: Any
     output: str
 
-    def __bool__(self) -> bool:
-        return self.exit_code == 0
-
 
 def call_command(
     name: str,
@@ -26,6 +23,8 @@ def call_command(
     """Call a command programmatically.
 
     Any output made by the command is captured and included in the result.
+    
+    Exit code is `0` if the command exits successfully (regardless of its return value), or `1` if a non-Click exception occurs. For other situations, the original Click behavior is honored.
 
     # Parameters
     name (str):
@@ -76,11 +75,6 @@ def call_command(
                 traceback.print_exc(file=output)
             else:
                 raise
-        else:
-            # Command has executed successfully.
-            # Try to derive exit code from return value.
-            with suppress(TypeError, ValueError):
-                exit_code = int(value)
 
     return CommandResult(
         value=value, exit_code=exit_code, output=output.getvalue()

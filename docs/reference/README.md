@@ -95,6 +95,8 @@ Call a command programmatically.
 
 Any output made by the command is captured and included in the result.
 
+Exit code is `0` if the command exits successfully (regardless of its return value), or `1` if a non-Click exception occurs. For other situations, the original Click behavior is honored.
+
 __Parameters__
 
 - __name (str)__:
