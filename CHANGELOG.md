@@ -10,6 +10,8 @@ Boca adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [v0.1.0] - 2019-01-25
+
 This release focuses on reimplementing the behavior of the CLI built into the `bocadillo` package as of v0.10.1, with some additions and slight changes.
 
 ### Added
@@ -31,4 +33,5 @@ Relative to Bocadillo v0.10.1:
 
 Initial release to PyPI.
 
-[Unreleased]: https://github.com/bocadilloproject/boca/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/bocadilloproject/boca/compare/v0.1.0...HEAD
+[v0.1.0]: https://github.com/bocadilloproject/boca/compare/v0.0.1...v0.1.0
