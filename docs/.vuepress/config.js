@@ -4,7 +4,7 @@ const title = 'Boca';
 const description = 'Tasty development tooling for Bocadillo';
 
 module.exports = {
-    base: '/boca',
+    base: '/boca/',
     title,
     description,
     lastUpdated: true,
