@@ -9,9 +9,11 @@
 
 # Boca
 
-Boca is the official development toolkit for Bocadillo.
+Boca is the official development toolkit for [Bocadillo][bocadillo].
 
 ## Install
+
+Boca can be installed from PyPI:
 
 ```bash
 pip install boca
@@ -19,10 +21,12 @@ pip install boca
 
 ## Documentation
 
-> TODO
+For usage guides, commands and API reference, visit our [documentation site][docs].
 
 ## License
 
 [MIT][license]
 
+[bocadillo]: https://github.com/bocadilloproject/bocadillo
+[docs]: https://bocadilloproject.github.io/boca
 [license]: https://github.com/bocadilloproject/boca/blob/master/LICENSE
