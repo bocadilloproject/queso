@@ -1,4 +1,4 @@
-from contextlib import redirect_stdout, suppress
+from contextlib import redirect_stdout
 import traceback
 from io import StringIO
 from typing import NamedTuple, Any

@@ -16,12 +16,15 @@ class Versions(NamedTuple):
 
     def __str__(self):
         items = (
-            ("Boca", self.boca),
-            ("Bocadillo", self.bocadillo),
-            ("Python", self.python),
-            ("OS", self.os),
+            ("Boca", self.boca, "yellow"),
+            ("Bocadillo", self.bocadillo, "green"),
+            ("Python", self.python, None),
+            ("OS", self.os, None),
         )
-        return "\n".join((f"{name}: {value}" for name, value in items))
+        return "\n".join(
+            f"{click.style(name, bold=True, fg=fg)}: {value}"
+            for name, value, fg in items
+        )
 
 
 def get() -> Versions:
