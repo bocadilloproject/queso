@@ -1,8 +1,10 @@
 # Programmatic usage
 
+## Calling commands from a Python script
+
 Boca ships with a `call_command` helper function which you can use if you need to call commands from your code.
 
-## Basic usage
+### Basic usage
 
 At the most basic level, `call_command` expects that you pass the name of the command first, and then any extra command line options to be parsed.
 
@@ -14,8 +16,7 @@ from boca import call_command
 call_command("version", "--help")
 ```
 
-
-## Command results
+### Command results
 
 The `call_command` function returns a `CommandResult` object which contains valuable information about the execution of the command:
 
@@ -23,7 +24,7 @@ The `call_command` function returns a `CommandResult` object which contains valu
 - `value`: the return value of the command callback, or `None`.
 - `output`: a string containing the captured standard output.
 
-## Error handling
+### Error handling
 
 By default, any exception that occurs during the execution of the command is propagated to the callee.
 
@@ -32,9 +33,9 @@ However, the `capture_errors` keyword argument can be used to capture exceptions
 - If set to `True`, Click exceptions such as `UsageError` or `Abort` will be captured and the `exit_code` will be set to that of the exception.
 - If set to `all` (the built-in), any exception will be captured, and the `exit_code` will be set to 2 if it cannot be obtained from the exception.
 
-### Examples
+#### Examples
 
-Let's declare in a [custom commands file][custom-commands] a command that fails with a `RuntimeError`:
+Let's declare in a [custom commands file](./custom-commands.md) a command that fails with a `RuntimeError`:
 
 ```python
 # boca.py
@@ -51,13 +52,13 @@ Here are a few examples that demonstrate how error handling works:
 
 ```python
 >>> call_command("foo")
-[...] # Traceback truncated for brievety
+# ... Traceback truncated for brevity ...
 click.exceptions.UsageError: No such command "foo".
 ```
 
 ```python
 >>> call_command("fail")
-[...] # Traceback truncated for brievety
+# ... Traceback truncated for brevity ...
 RuntimeError: This is unexpected…
 ```
 
@@ -79,8 +80,29 @@ Error: No such command "foo".
 
 ```python
 >>> result = call_command("fail", capture_errors=all)
->>> result.exit_code  # 2
+>>> result.exit_code
+2
 >>> print(result.output)
+# ... Traceback truncated for brevity ...
+RuntimeError: This is unexpected…
 ```
 
-[custom-commands]: ./custom-commands.md
+## Instanciating the CLI
+
+You can use the [create_cli](../reference/#create-cli) function to obtain the same `click.Command` object that is actually used when running `boca` from the command line.
+
+```python
+import click
+from boca import create_cli
+
+cli: click.Command = create_cli()
+
+# Inspect the registered commands.
+print(cli.commands)  # {"version": ...}
+
+# Run the CLI manually.
+if __name__ == "__main__":
+    cli()
+```
+
+Refer to [Click: Commands and groups](http://click.palletsprojects.com/en/7.x/commands/) for tips on interacting with `click.Command` objects.

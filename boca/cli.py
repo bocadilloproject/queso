@@ -6,14 +6,10 @@ from .versions import version_option
 
 
 def create_cli() -> click.Command:
-    """This is the Bocadillo CLI factory.
-
-    ::: tip
-    Use this function to obtain an instance of `boca` for programmatic use.
-    :::
+    """Build and return an instance of `boca`.
 
     # Returns
-    cli (click.Command): an instance of the `boca` CLI.
+    cli (click.Command): contains both built-in and custom commands.
     """
 
     @click.group(name="boca", cls=CustomCommandsGroup)

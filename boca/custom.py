@@ -4,7 +4,7 @@ from .constants import CUSTOM_COMMANDS_ENV_VAR, DEFAULT_CUSTOM_COMMANDS
 from .groups import FileGroup
 
 
-def get_custom_commands_path():
+def get_custom_commands_path() -> str:
     return os.getenv(CUSTOM_COMMANDS_ENV_VAR, DEFAULT_CUSTOM_COMMANDS)
 
 

@@ -38,6 +38,6 @@ Python: 3.7.2
 OS: Darwin-18.2.0-x86_64-i386-64bit
 ```
 
-Note that you may have another OS of version of Boca, Bocadillo, or Python installed.
+Note that you may have another OS or a different version of Boca, Bocadillo, or Python installed.
 
 [bocadillo]: https://bocadilloproject.github.io

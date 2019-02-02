@@ -13,11 +13,22 @@ Options:
   --help             Show this message and exit.
 
 Commands:
+  fail
   init:custom  Generate files required to build custom commands.
   version      Show version information and exit.
 ```
 
 ### Built-in commands
+
+#### fail
+
+
+```
+Usage: boca fail [OPTIONS]
+
+Options:
+  --help  Show this message and exit.
+```
 
 #### init:custom
 
@@ -56,15 +67,11 @@ Options:
 ```python
 create_cli() -> click.core.Command
 ```
-This is the Bocadillo CLI factory.
-
-::: tip
-Use this function to obtain an instance of `boca` for programmatic use.
-:::
+Build and return an instance of `boca`.
 
 __Returns__
 
-`cli (click.Command)`: an instance of the `boca` CLI.
+`cli (click.Command)`: contains both built-in and custom commands.
 
 ###  boca.constants
 
