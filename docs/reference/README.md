@@ -13,22 +13,11 @@ Options:
   --help             Show this message and exit.
 
 Commands:
-  fail
   init:custom  Generate files required to build custom commands.
   version      Show version information and exit.
 ```
 
 ### Built-in commands
-
-#### fail
-
-
-```
-Usage: boca fail [OPTIONS]
-
-Options:
-  --help  Show this message and exit.
-```
 
 #### init:custom
 
