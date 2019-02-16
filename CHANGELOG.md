@@ -30,13 +30,13 @@ This release focuses on reimplementing the behavior of the CLI built into the `b
 Relative to Bocadillo v0.10.1:
 
 - Custom commands:
-    - It is not mendatory anymore to declare a `click.Group` in the custom commands file. All `click.Command` objects declared in the file are mounted onto `boca`. This includes commands declared with `@click.command()`, groups declared with `@click.group()` and any other instance of a subclass of `click.Command`.
-    - **BREAKING**: The environment variable changed from `BOCA_CUSTOM_COMMANDS_FILE` to `BOCA_CUSTOM_COMMANDS`.
+  - It is not mendatory anymore to declare a `click.Group` in the custom commands file. All `click.Command` objects declared in the file are mounted onto `boca`. This includes commands declared with `@click.command()`, groups declared with `@click.group()` and any other instance of a subclass of `click.Command`.
+  - **BREAKING**: The environment variable changed from `BOCA_CUSTOM_COMMANDS_FILE` to `BOCA_CUSTOM_COMMANDS`.
 
 ## v0.0.1 - 2019-01-20
 
 Initial release to PyPI.
 
-[Unreleased]: https://github.com/bocadilloproject/boca/compare/v0.1.1...HEAD
-[Unreleased]: https://github.com/bocadilloproject/boca/compare/v0.1.0...v0.1.1
+[unreleased]: https://github.com/bocadilloproject/boca/compare/v0.1.1...HEAD
+[v0.1.1]: https://github.com/bocadilloproject/boca/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/bocadilloproject/boca/compare/v0.0.1...v0.1.0
