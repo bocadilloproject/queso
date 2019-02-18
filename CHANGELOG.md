@@ -13,6 +13,7 @@ Queso adheres to [Semantic Versioning](https://semver.org).
 ### Changed
 
 - Project renamed to **Queso**.
+- Custom commands environment variable renamed to `QUESO_COMMANDS`.
 
 ## [v0.1.1] - 2019-01-26
 

@@ -15,7 +15,7 @@ Queso looks for custom commands in a `queso.py` script relative to the current w
 Every `click.Command` object present in this file is mounted onto the root Queso command. For example, a custom `hello` command would be made available as `$ queso hello`.
 
 ::: tip
-You can customize which file is used for command discovery using the `BOCA_CUSTOM_COMMANDS` environment variable. It supports both absolute and relative paths.
+You can customize which file is used for command discovery using the `QUESO_COMMANDS` environment variable. It supports both absolute and relative paths.
 :::
 
 ## Example

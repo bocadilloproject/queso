@@ -67,7 +67,7 @@ __Returns__
 
 This module contains various useful constants, listed below.
 ```python
-CUSTOM_COMMANDS_ENV_VAR = "BOCA_CUSTOM_COMMANDS"
+CUSTOM_COMMANDS_ENV_VAR = "QUESO_COMMANDS"
 DEFAULT_CUSTOM_COMMANDS = "queso.py"
 ```
 ###  queso.utils
