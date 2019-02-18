@@ -1,5 +1,3 @@
-const listDir = require("./utils").listDir;
-
 const title = "Queso";
 const description = "Tasty development tooling for Bocadillo";
 
