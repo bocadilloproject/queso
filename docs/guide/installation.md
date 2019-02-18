@@ -32,7 +32,7 @@ To verify that Queso has been correctly installed and made available to your `PA
 
 ```bash
 $ queso -V
-Queso: 0.1.1
+Queso: 0.2.0
 Bocadillo: 0.10.1
 Python: 3.7.2
 OS: Darwin-18.2.0-x86_64-i386-64bit

@@ -13,7 +13,7 @@ CHANGELOG = f"{GITHUB}/blob/master/CHANGELOG.md"
 
 setuptools.setup(
     name="queso",
-    version="0.1.1",
+    version="0.2.0",
     author="Florimond Manca",
     author_email="florimond.manca@gmail.com",
     description=description,
