@@ -1,3 +1,9 @@
+<p align="center">
+    <img src="https://github.com/bocadilloproject/queso/blob/master/.github/banner.png?raw=true">
+</p>
+
+---
+
 [![python](https://img.shields.io/pypi/pyversions/queso.svg?logo=python&logoColor=fed749&colorB=3770a0&label=)](https://www.python.org)
 [![pypi](https://img.shields.io/pypi/v/queso.svg)][pypi]
 [![travis](https://img.shields.io/travis/bocadilloproject/queso.svg)](https://travis-ci.org/bocadilloproject/queso)
@@ -30,3 +36,10 @@ For usage guides and reference, visit our [documentation site][docs].
 [bocadillo]: https://github.com/bocadilloproject/bocadillo
 [docs]: https://bocadilloproject.github.io/queso
 [license]: https://github.com/bocadilloproject/queso/blob/master/LICENSE
+
+## Credits
+
+Logo:
+
+- Designed by Florimond Manca.
+- Cheese icon designed by [freepik.es](https://www.freepik.es/vector-gratis/coleccion-bocetos-queso_897954.htm).
