@@ -10,6 +10,8 @@ Queso adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [v0.2.0] - 2019-02-18
+
 ### Changed
 
 - Project renamed to **Queso**.
@@ -42,6 +44,7 @@ Relative to Bocadillo v0.10.1:
 
 Initial release to PyPI.
 
-[unreleased]: https://github.com/bocadilloproject/queso/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/bocadilloproject/queso/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/bocadilloproject/queso/compare/v0.1.1...v0.2.0
 [v0.1.1]: https://github.com/bocadilloproject/queso/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/bocadilloproject/queso/compare/v0.0.1...v0.1.0
