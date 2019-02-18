@@ -1,10 +1,10 @@
 const listDir = require('./utils').listDir;
 
-const title = 'Boca';
+const title = 'Queso';
 const description = 'Tasty development tooling for Bocadillo';
 
 module.exports = {
-    base: '/boca/',
+    base: '/queso/',
     title,
     description,
     lastUpdated: true,
@@ -13,7 +13,7 @@ module.exports = {
         ['meta', { name: 'twitter:card', content: 'summary' }],
         ['meta', {
             name: 'twitter:url',
-            content: 'https://bocadillo.github.io/boca'
+            content: 'https://bocadillo.github.io/queso'
         }],
         ['meta', { name: 'twitter:site', content: title }],
         ['meta', { name: 'twitter:creator', content: 'Florimond Manca' }],
@@ -26,7 +26,7 @@ module.exports = {
     ],
     serviceWorker: true,
     themeConfig: {
-        repo: 'bocadilloproject/boca',
+        repo: 'bocadilloproject/queso',
         docsDir: 'docs',
         docsBranch: 'release/docs',
         editLinks: true,
@@ -45,11 +45,11 @@ module.exports = {
             },
             {
                 text: 'Changelog',
-                link: 'https://github.com/bocadilloproject/boca/blob/master/CHANGELOG.md',
+                link: 'https://github.com/bocadilloproject/queso/blob/master/CHANGELOG.md',
             },
             {
                 text: 'PyPI',
-                link: 'https://pypi.org/project/boca/',
+                link: 'https://pypi.org/project/queso/',
             },
         ],
         sidebar: {

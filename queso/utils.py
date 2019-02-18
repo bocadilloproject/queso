@@ -44,7 +44,7 @@ def call_command(
     # Example
 
     ```python
-    >>> from boca import call_command
+    >>> from queso import call_command
     >>> r = call_command("version", "--help")
     >>> r.exit_code
     0

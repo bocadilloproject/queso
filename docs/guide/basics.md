@@ -2,17 +2,17 @@
 
 ## Command line usage
 
-Boca being a CLI application, it is first and foremost made to be used in the command line.
+Queso being a CLI application, it is first and foremost made to be used in the command line.
 
-When it is installed, Boca makes itself available in the `PATH` as `boca`. You can invoke this executable to execute commands.
+When it is installed, Queso makes itself available in the `PATH` as `queso`. You can invoke this executable to execute commands.
 
-The usage is: `boca <COMMAND> [OPTIONS]`.
+The usage is: `queso <COMMAND> [OPTIONS]`.
 
 If you're ever unsure about a command, you can ask for `--help`:
 
 ```bash
-$ boca version --help
-Usage: boca version [OPTIONS]
+$ queso version --help
+Usage: queso version [OPTIONS]
 
   Show version information and exit.
 
@@ -22,11 +22,11 @@ Options:
 
 ## Available commands
 
-Boca ships with a certain number of built-in commands, which you can read more about in the [Built-in commands reference][built-in-commands].
+Queso ships with a certain number of built-in commands, which you can read more about in the [Built-in commands reference][built-in-commands].
 
 ```bash
-$ boca
-Usage: boca [OPTIONS] COMMAND [ARGS]...
+$ queso
+Usage: queso [OPTIONS] COMMAND [ARGS]...
 
 Options:
   -v, -V, --version  Show the version and exit.
@@ -37,6 +37,6 @@ Commands:
   version      Show version information and exit.
 ```
 
-An important feature of Boca is being very easy to extend. You can write your custom commands and use them just like the built-ins. You can read more about custom commands in the next section.
+An important feature of Queso is being very easy to extend. You can write your custom commands and use them just like the built-ins. You can read more about custom commands in the next section.
 
 [built-in-commands]: ../reference/README.md#built-in-commands

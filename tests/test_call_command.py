@@ -2,19 +2,19 @@ import pytest
 import click
 from click.exceptions import UsageError
 
-from boca import call_command
+from queso import call_command
 
 
 def test_simple_call():
     r = call_command("version")
     assert r.exit_code == 0
-    assert "Boca: " in r.output
+    assert "Queso: " in r.output
 
 
 def test_call_with_parameters():
     r = call_command("version", "--help")
     assert r.exit_code == 0
-    assert "Usage: boca version" in r.output
+    assert "Usage: queso version" in r.output
 
 
 def test_return_value():

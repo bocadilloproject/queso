@@ -7,19 +7,19 @@ description = "Tasty development tooling for Bocadillo."
 with open("README.md", "r") as readme:
     long_description = readme.read()
 
-GITHUB = "https://github.com/bocadilloproject/boca"
-DOCS = "https://bocadilloproject.github.io/boca"
+GITHUB = "https://github.com/bocadilloproject/queso"
+DOCS = "https://bocadilloproject.github.io/queso"
 CHANGELOG = f"{GITHUB}/blob/master/CHANGELOG.md"
 
 setuptools.setup(
-    name="boca",
+    name="queso",
     version="0.1.1",
     author="Florimond Manca",
     author_email="florimond.manca@gmail.com",
     description=description,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=["boca"],
+    packages=["queso"],
     install_requires=["click"],
     url=DOCS,
     project_urls={
@@ -41,5 +41,5 @@ setuptools.setup(
         "Topic :: Utilities",
         "Topic :: Software Development :: Code Generators",
     ],
-    entry_points={"console_scripts": ["boca=boca.__main__:cli"]},
+    entry_points={"console_scripts": ["queso=queso.__main__:cli"]},
 )

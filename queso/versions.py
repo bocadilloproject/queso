@@ -9,14 +9,14 @@ __version__ = "0.1.1"
 
 class Versions(NamedTuple):
 
-    boca: str
+    queso: str
     bocadillo: str
     python: str
     os: str
 
     def __str__(self):
         items = (
-            ("Boca", self.boca, "yellow"),
+            ("Queso", self.queso, "yellow"),
             ("Bocadillo", self.bocadillo, "green"),
             ("Python", self.python, None),
             ("OS", self.os, None),
@@ -28,11 +28,11 @@ class Versions(NamedTuple):
 
 
 def get() -> Versions:
-    """Retrieve versions for Boca, Bocadillo.
+    """Retrieve versions for Queso, Bocadillo.
 
     # Returns
     versions (Versions):
-        An object containing the `bocadillo` and `boca` version as eponymous
+        An object containing the `bocadillo` and `queso` version as eponymous
         attributes.
     """
     try:
@@ -46,7 +46,7 @@ def get() -> Versions:
         bocadillo_version = bocadillo.__version__
 
     return Versions(
-        boca=__version__,
+        queso=__version__,
         bocadillo=bocadillo_version,
         python=".".join(map(str, sys.version_info[:3])),
         os=platform.platform(),
@@ -60,7 +60,7 @@ get.simulate_module_not_found = False
 @click.command()
 @click.pass_context
 def show(ctx):
-    """Show the Bocadillo and Boca versions."""
+    """Show the Bocadillo and Queso versions."""
     versions = get()
     click.echo(str(versions))
     ctx.exit()
