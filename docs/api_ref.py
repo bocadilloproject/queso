@@ -7,8 +7,8 @@ import inspect
 
 import yaml
 
-from boca.cli import create_cli
-from boca import constants
+from queso.cli import create_cli
+from queso import constants
 
 
 def get_help(cmd: List[str]):
@@ -25,7 +25,7 @@ def main():
     subprocess.call(["pydocmd", "generate"])
 
     with open(join(api_ref_dir, "constants.md"), "w") as constants_out:
-        constants_out.write("# boca.constants\n")
+        constants_out.write("# queso.constants\n")
         constants_out.write(
             "This module contains various useful constants, listed below.\n"
         )
@@ -47,19 +47,19 @@ def main():
 
         _text(
             "This document describes all public commands, functions, "
-            "classes and modules in Boca."
+            "classes and modules in Queso."
         )
 
         _header(2, "Command line usage")
 
         _header(3, "Overview")
-        _text(get_help(["boca"]))
+        _text(get_help(["queso"]))
 
         _header(3, "Built-in commands")
         for name in sorted(cli.commands.keys()):
             command = cli.commands[name]
             _header(4, name)
-            _text("\n".join([command.__doc__ or "", get_help(["boca", name])]))
+            _text("\n".join([command.__doc__ or "", get_help(["queso", name])]))
 
         _header(2, "Python modules")
         for path in sorted(glob(join(api_ref_dir, "*.md"))):

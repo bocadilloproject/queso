@@ -2,16 +2,16 @@
 
 ## Calling commands from a Python script
 
-Boca ships with a `call_command` helper function which you can use if you need to call commands from your code.
+Queso ships with a `call_command` helper function which you can use if you need to call commands from your code.
 
 ### Basic usage
 
 At the most basic level, `call_command` expects that you pass the name of the command first, and then any extra command line options to be parsed.
 
-Here's an example that is equivalent to executing `$ boca version --help`:
+Here's an example that is equivalent to executing `$ queso version --help`:
 
 ```python
-from boca import call_command
+from queso import call_command
 
 call_command("version", "--help")
 ```
@@ -38,7 +38,7 @@ However, the `capture_errors` keyword argument can be used to capture exceptions
 Let's declare in a [custom commands file](./custom-commands.md) a command that fails with a `RuntimeError`:
 
 ```python
-# boca.py
+# queso.py
 import click
 
 @click.command()
@@ -70,8 +70,8 @@ RuntimeError: This is unexpected…
 >>> result.exit_code
 2
 >>> print(result.output)
-Usage: boca [OPTIONS] COMMAND [ARGS]...
-Try "boca --help" for help.
+Usage: queso [OPTIONS] COMMAND [ARGS]...
+Try "queso --help" for help.
 
 Error: No such command "foo".
 ```
@@ -89,11 +89,11 @@ RuntimeError: This is unexpected…
 
 ## Instanciating the CLI
 
-You can use the [create_cli](../reference/#create-cli) function to obtain the same `click.Command` object that is actually used when running `boca` from the command line.
+You can use the [create_cli](../reference/#create-cli) function to obtain the same `click.Command` object that is actually used when running `queso` from the command line.
 
 ```python
 import click
-from boca import create_cli
+from queso import create_cli
 
 cli: click.Command = create_cli()
 

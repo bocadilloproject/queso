@@ -1,9 +1,9 @@
 import pytest
 from bocadillo import __version__ as bocadillo_version
 
-from boca import __version__ as boca_version
-from boca import create_cli
-from boca.versions import get
+from queso import __version__ as boca_version
+from queso import create_cli
+from queso.versions import get
 
 flags = ("-v", "-V", "--version", "version")
 

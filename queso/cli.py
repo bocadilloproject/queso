@@ -6,13 +6,13 @@ from .versions import version_option
 
 
 def create_cli() -> click.Command:
-    """Build and return an instance of `boca`.
+    """Build and return an instance of `queso`.
 
     # Returns
     cli (click.Command): contains both built-in and custom commands.
     """
 
-    @click.group(name="boca", cls=CustomCommandsGroup)
+    @click.group(name="queso", cls=CustomCommandsGroup)
     @version_option("-v", "-V", "--version")
     def cli():
         pass

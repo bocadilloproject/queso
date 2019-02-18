@@ -1,6 +1,6 @@
 [run]
 branch = True
-source = boca
+source = queso
 
 [report]
 exclude_lines =
@@ -12,5 +12,5 @@ ignore_errors = True
 omit =
     setup.py
     tests/*
-    boca/scaffolding/*
+    queso/scaffolding/*
     _*.py

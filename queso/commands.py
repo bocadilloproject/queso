@@ -21,6 +21,6 @@ def version():
 def init_custom(directory: str):
     """Generate files required to build custom commands."""
     dest = os.path.join(directory, get_custom_commands_path())
-    scaffold.copy("boca.py", dest)
+    scaffold.copy("queso.py", dest)
     click.echo(click.style(f"Generated {dest}", fg="green"))
     click.echo("Open the file and start building!")

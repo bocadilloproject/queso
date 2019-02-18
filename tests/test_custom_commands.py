@@ -3,8 +3,8 @@ from os.path import join
 
 import pytest
 
-from boca import create_cli, call_command
-from boca.custom import CUSTOM_COMMANDS_ENV_VAR
+from queso import create_cli, call_command
+from queso.custom import CUSTOM_COMMANDS_ENV_VAR
 
 from .utils import env
 
@@ -20,13 +20,13 @@ def test_init_custom_commands_in_dir(runner, tmpdir):
     for item in "generated", "open the file":
         assert item in output
 
-    with open(join(str(tmpdir), "boca.py"), "r") as generated:
+    with open(join(str(tmpdir), "queso.py"), "r") as generated:
         assert "import click" in generated.read()
 
 
 @pytest.fixture
 def custom_commands(tmpdir):
-    file_ = tmpdir.join("boca.py")
+    file_ = tmpdir.join("queso.py")
     file_.write(
         cleandoc(
             """
@@ -52,10 +52,10 @@ def custom_commands(tmpdir):
 @pytest.mark.parametrize(
     "command, exit_code, sample",
     [
-        (["animals"], 0, "Usage: boca animals"),
+        (["animals"], 0, "Usage: queso animals"),
         (["cats"], 0, "Cats!"),
         (["the-cars"], 0, "Cars!"),
-        (["cars"], 2, "Usage: boca"),
+        (["cars"], 2, "Usage: queso"),
     ],
 )
 def test_can_provide_custom_commands(
@@ -70,7 +70,7 @@ def test_can_provide_custom_commands(
 
 
 def test_no_commands_allowed(tmpdir):
-    boca_dot_py = tmpdir.join("boca.py")
+    boca_dot_py = tmpdir.join("queso.py")
     boca_dot_py.write("import click")
     create_cli()
 

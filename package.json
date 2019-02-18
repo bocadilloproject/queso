@@ -1,5 +1,5 @@
 {
-  "name": "boca",
+  "name": "queso",
   "version": "0.1.1",
   "description": "Tasty development tooling for Bocadillo",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bocadilloproject/boca.git"
+    "url": "git+https://github.com/bocadilloproject/queso.git"
   },
   "author": "Florimond Manca",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bocadilloproject/boca/issues"
+    "url": "https://github.com/bocadilloproject/queso/issues"
   },
-  "homepage": "https://github.com/bocadilloproject/boca",
+  "homepage": "https://github.com/bocadilloproject/queso",
   "dependencies": {
     "vuepress": "^0.14.8"
   }

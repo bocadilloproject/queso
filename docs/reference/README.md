@@ -1,12 +1,12 @@
 # Reference
 
-This document describes all public commands, functions, classes and modules in Boca.
+This document describes all public commands, functions, classes and modules in Queso.
 ## Command line usage
 
 ### Overview
 
 ```
-Usage: boca [OPTIONS] COMMAND [ARGS]...
+Usage: queso [OPTIONS] COMMAND [ARGS]...
 
 Options:
   -v, -V, --version  Show the version and exit.
@@ -23,7 +23,7 @@ Commands:
 
 Generate files required to build custom commands.
 ```
-Usage: boca init:custom [OPTIONS]
+Usage: queso init:custom [OPTIONS]
 
   Generate files required to build custom commands.
 
@@ -36,7 +36,7 @@ Options:
 
 Show version information and exit.
 ```
-Usage: boca version [OPTIONS]
+Usage: queso version [OPTIONS]
 
   Show version information and exit.
 
@@ -46,7 +46,7 @@ Options:
 
 ## Python modules
 
-###  boca.cli
+###  queso.cli
 
 
 
@@ -56,21 +56,21 @@ Options:
 ```python
 create_cli() -> click.core.Command
 ```
-Build and return an instance of `boca`.
+Build and return an instance of `queso`.
 
 __Returns__
 
 `cli (click.Command)`: contains both built-in and custom commands.
 
-###  boca.constants
+###  queso.constants
 
 
 This module contains various useful constants, listed below.
 ```python
-CUSTOM_COMMANDS_ENV_VAR = "BOCA_CUSTOM_COMMANDS"
-DEFAULT_CUSTOM_COMMANDS = "boca.py"
+CUSTOM_COMMANDS_ENV_VAR = "QUESO_COMMANDS"
+DEFAULT_CUSTOM_COMMANDS = "queso.py"
 ```
-###  boca.utils
+###  queso.utils
 
 
 
@@ -85,7 +85,7 @@ CommandResult(exit_code, value, output)
 
 
 ```python
-call_command(name: str, *args: str, capture_errors: bool = False, cli: click.core.Command = None) -> boca.utils.CommandResult
+call_command(name: str, *args: str, capture_errors: bool = False, cli: click.core.Command = None) -> queso.utils.CommandResult
 ```
 Call a command programmatically.
 
@@ -114,7 +114,7 @@ __Example__
 
 
 ```python
->>> from boca import call_command
+>>> from queso import call_command
 >>> r = call_command("version", "--help")
 >>> r.exit_code
 0
