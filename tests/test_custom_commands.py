@@ -6,7 +6,7 @@ import pytest
 from queso import create_cli, call_command
 from queso.custom import CUSTOM_COMMANDS_ENV_VAR
 
-from .utils import env
+from .utils import override_env
 
 
 def test_init_custom_commands_in_dir(runner, tmpdir):
@@ -61,7 +61,7 @@ def custom_commands(tmpdir):
 def test_can_provide_custom_commands(
     runner, custom_commands, command, exit_code, sample
 ):
-    with env(CUSTOM_COMMANDS_ENV_VAR, custom_commands):
+    with override_env(CUSTOM_COMMANDS_ENV_VAR, custom_commands):
         cli = create_cli()
 
     result = runner.invoke(cli, command)
@@ -76,7 +76,7 @@ def test_no_commands_allowed(tmpdir):
 
 
 def test_call_custom_command(custom_commands):
-    with env(CUSTOM_COMMANDS_ENV_VAR, custom_commands):
+    with override_env(CUSTOM_COMMANDS_ENV_VAR, custom_commands):
         r = call_command("cats")
         assert r.exit_code == 0
         assert r.value is None

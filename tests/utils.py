@@ -3,7 +3,7 @@ import os
 
 
 @contextmanager
-def env(var: str, value: str):
+def override_env(var: str, value: str):
     initial = os.environ.get(var, None)
     os.environ[var] = value
     try:
