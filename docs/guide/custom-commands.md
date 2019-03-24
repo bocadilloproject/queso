@@ -4,35 +4,30 @@ If you find yourself repeating certain tasks, you can automate them very easily 
 
 ## How custom commands are discovered
 
-Queso looks for custom commands in a `queso.py` script relative to the current working directory, as shown in the following example project structure:
+By default, Queso looks for custom commands in a `queso.py` script relative to the current working directory, as shown in the following example project structure:
 
 ```
 .
-├── api.py
+├── app.py
 └── queso.py
 ```
 
-Every `click.Command` object present in this file is mounted onto the root Queso command. For example, a custom `hello` command would be made available as `$ queso hello`.
+Every `queso.Command` declared in the custom commands script is mounted onto the root Queso command.
 
-::: tip
-You can customize which file is used for command discovery using the `QUESO_COMMANDS` environment variable. It supports both absolute and relative paths.
-:::
-
-## Example
-
-Let's create a `queso.py` file at the root of our project directory and use Click to declare a simple `hello` command:
+For example, the following `queso.py` script:
 
 ```python
 # queso.py
+import queso
 import click
 
-@click.command()
+@queso.command()
 def hello():
     """Show a warm welcome message."""
     click.echo("Hello, world!")
 ```
 
-Once this is done, we're ready to use the `hello` command through Queso:
+would allow to use the `hello` command like so:
 
 ```
 $ queso hello
@@ -41,18 +36,30 @@ Hello, world!
 
 :tada:
 
-From here, the whole world of Click is open to us. For example, let's show the generated usage tips for our newly declared command:
-
-```
-$ queso hello --help
-Usage: queso hello [OPTIONS]
-
-  Show a warm welcome message.
-
-Options:
-  --help  Show this message and exit.
-```
-
-You can make use of any Click feature to build commands that help you automate certain tasks. See also the official [Click documentation][click-docs].
+You can use all other Click's features (options, arguments, etc.) to build beautiful commands. See also the official [Click documentation][click-docs].
 
 [click-docs]: https://click.palletsprojects.com
+
+::: tip Q&A
+
+**Why `@queso.command()` instead `@click.command()`?**
+
+`@queso.command()` exists to prevent Queso from accidentally mounting non-Queso commands, e.g. Click commands that were simply imported into the custom commands script. You must use it or Queso won't be able to mount your custom commands.
+
+**So do I have to use `@queso.group()` instead of `@click.group()`?**
+
+Absolutely!
+
+**How about `@click.option()`, `@click.argument()`, …?**
+
+Use them as usual! We don't override any other Click feature. ;-)
+
+:::
+
+## Specifying the custom commands location
+
+You can customize which file is used to discover custom commands using the `QUESO_COMMANDS` environment variable. It supports both absolute and relative paths.
+
+```bash
+export QUESO_COMMANDS=path/to/my_queso_commands.py
+```
