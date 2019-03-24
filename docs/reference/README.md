@@ -66,11 +66,11 @@ __Returns__
 
 
 
-####  QuesoCommand
+####  Command
 
 
 ```python
-QuesoCommand(self, name, context_settings=None, callback=None, params=None, help=None, epilog=None, short_help=None, options_metavar='[OPTIONS]', add_help_option=True, hidden=False, deprecated=False)
+Command(self, name, context_settings=None, callback=None, params=None, help=None, epilog=None, short_help=None, options_metavar='[OPTIONS]', add_help_option=True, hidden=False, deprecated=False)
 ```
 Base class for Queso commands.
 
@@ -78,15 +78,15 @@ Merely a subclass of [click.Command][clickcommand].
 
 [clickcommand]: http://click.palletsprojects.com/en/7.x/api/#click.Command
 
-####  QuesoGroup
+####  Group
 
 
 ```python
-QuesoGroup(self, name=None, commands=None, **attrs)
+Group(self, name=None, commands=None, **attrs)
 ```
 Base class for Queso command groups.
 
-A subclass of [QuesoCommand](#quesocommand) and [click.Group][clickgroup].
+A subclass of [Command](#command) and [click.Group][clickgroup].
 
 [clickgroup]: http://click.palletsprojects.com/en/7.x/api/#click.Group
 
@@ -96,13 +96,13 @@ A subclass of [QuesoCommand](#quesocommand) and [click.Group][clickgroup].
 ```python
 FileGroup(self, path: str, *args, **kwargs)
 ```
-A [QuesoGroup](#quesogroup) that loads commands declared in a file.
+A [Group](#group) that loads Queso commands declared in a file.
 
 __Parameters__
 
 - __path (str)__:
-    path to a Python module that contains Click commands
-    (declared with `@click.command()` or `@click.group()`).
+    path to a Python module that contains Queso commands
+    (declared with `@queso.command()` or `@queso.group()`).
 
 ####  CustomCommandsGroup
 

@@ -4,10 +4,10 @@ import click
 import runpy
 
 
-__all__ = ["command", "group", "QuesoCommand", "QuesoGroup"]
+__all__ = ["command", "group", "Command", "Group"]
 
 
-class QuesoCommand(click.Command):
+class Command(click.Command):
     """Base class for Queso commands.
 
     Merely a subclass of [click.Command][clickcommand].
@@ -26,22 +26,22 @@ class QuesoCommand(click.Command):
         return rv
 
 
-class QuesoGroup(QuesoCommand, click.Group):
+class Group(Command, click.Group):
     """Base class for Queso command groups.
 
-    A subclass of [QuesoCommand](#quesocommand) and [click.Group][clickgroup].
+    A subclass of [Command](#command) and [click.Group][clickgroup].
 
     [clickgroup]: http://click.palletsprojects.com/en/7.x/api/#click.Group
     """
 
 
-class FileGroup(QuesoGroup):
-    """A [QuesoGroup](#quesogroup) that loads commands declared in a file.
+class FileGroup(Group):
+    """A [Group](#group) that loads Queso commands declared in a file.
 
     # Parameters
     path (str):
-        path to a Python module that contains Click commands
-        (declared with `@click.command()` or `@click.group()`).
+        path to a Python module that contains Queso commands
+        (declared with `@queso.command()` or `@queso.group()`).
     """
 
     def __init__(self, path: str, *args, **kwargs):
@@ -54,7 +54,7 @@ class FileGroup(QuesoGroup):
             return
         else:
             for value in namespace.values():
-                if isinstance(value, QuesoCommand):
+                if isinstance(value, Command):
                     self.add_command(value)
 
 
@@ -73,11 +73,11 @@ class CustomCommandsGroup(FileGroup):
         return os.getenv("QUESO_COMMANDS", "queso.py")
 
 
-def command(name: str = None, **kwargs) -> QuesoCommand:
-    """Replacement for `click.command()` with `QuesoCommand` as a base class."""
-    return click.command(name=name, cls=QuesoCommand, **kwargs)
+def command(name: str = None, **kwargs) -> Command:
+    """Replacement for `click.command()` with `Command` as a base class."""
+    return click.command(name=name, cls=Command, **kwargs)
 
 
-def group(name: str = None, **kwargs) -> QuesoGroup:
-    """Replacement for `click.group()` with `QuesoGroup` as a base class."""
-    return click.group(name=name, cls=QuesoGroup, **kwargs)
+def group(name: str = None, **kwargs) -> Group:
+    """Replacement for `click.group()` with `Group` as a base class."""
+    return click.group(name=name, cls=Group, **kwargs)

@@ -3,17 +3,17 @@ import os
 import click
 
 from queso import scaffold
-from queso.commands import CustomCommandsGroup, QuesoCommand
+from queso.commands import CustomCommandsGroup, command
 from queso.versions import get_versions
 
 
-@click.command(cls=QuesoCommand)
+@command()
 def version():
     """Show version information and exit."""
     click.echo(str(get_versions()))
 
 
-@click.command(name="init:custom", cls=QuesoCommand)
+@command(name="init:custom")
 @click.option(
     "-d", "--directory", default="", help="Where files should be generated."
 )

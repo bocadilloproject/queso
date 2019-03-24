@@ -1,8 +1,9 @@
 import click
 
+from queso.commands import Command, CustomCommandsGroup
+
 from . import commands
 from .options import version_option
-from queso.commands import CustomCommandsGroup
 
 
 def create_cli() -> click.Command:
@@ -18,9 +19,7 @@ def create_cli() -> click.Command:
         pass
 
     for value in vars(commands).values():
-        if not isinstance(value, commands.QuesoCommand):
-            continue
-        if getattr(value, "__queso_ignore__", None):
+        if not isinstance(value, Command):
             continue
         cli.add_command(value)
 
