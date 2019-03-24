@@ -1,5 +1,5 @@
 import os
-from typing import Any, List, TypeVar
+from typing import Any, Callable, List, TypeVar
 
 import click
 import runpy
@@ -94,10 +94,9 @@ def group(
     name: str = None, cls: G = None, **kwargs: Any
 ) -> Callable[[Callable], G]:
     """Replacement for `click.group()`.
-    
+
     Uses `Group` as a default base class.
     """
     if cls is None:
         cls = Group
     return click.group(name=name, cls=cls, **kwargs)
-
