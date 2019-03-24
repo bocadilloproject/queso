@@ -6,7 +6,7 @@ This document describes all public commands, functions, classes and modules in Q
 ### Overview
 
 ```
-Usage: queso [OPTIONS] COMMAND [ARGS]...
+Usage: queso [OPTIONS]
 
 Options:
   -v, -V, --version  Show the version and exit.
@@ -73,21 +73,36 @@ __Returns__
 QuesoCommand(self, name, context_settings=None, callback=None, params=None, help=None, epilog=None, short_help=None, options_metavar='[OPTIONS]', add_help_option=True, hidden=False, deprecated=False)
 ```
 Base class for Queso commands.
+
+Merely a subclass of [click.Command][clickcommand].
+
+[clickcommand]: http://click.palletsprojects.com/en/7.x/api/#click.Command
+
+####  QuesoGroup
+
+
+```python
+QuesoGroup(self, name=None, commands=None, **attrs)
+```
+Base class for Queso command groups.
+
+A subclass of [QuesoCommand](#quesocommand) and [click.Group][clickgroup].
+
+[clickgroup]: http://click.palletsprojects.com/en/7.x/api/#click.Group
+
 ####  FileGroup
 
 
 ```python
 FileGroup(self, path: str, *args, **kwargs)
 ```
-A Click [MultiCommand] that loads commands declared in a file.
-
-[MultiCommand]: http://click.palletsprojects.com/en/7.x/api/#click.MultiCommand
+A [QuesoGroup](#quesogroup) that loads commands declared in a file.
 
 __Parameters__
 
 - __path (str)__:
-    Path to a Python module declaring Click commands (declared with
-    `@click.command()` or `@click.group()`).
+    path to a Python module that contains Click commands
+    (declared with `@click.command()` or `@click.group()`).
 
 ####  CustomCommandsGroup
 
@@ -95,7 +110,7 @@ __Parameters__
 ```python
 CustomCommandsGroup(self, *args, **kwargs)
 ```
-A [FileGroup](#filegroup) which looks for custom commands.
+A [FileGroup](#filegroup) that loads custom commands.
 
 The custom commands file is `./queso.py` by default. This can be
 overridden by setting the `QUESO_COMMANDS` environment variable.

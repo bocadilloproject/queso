@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 import shutil
 import subprocess
 from glob import glob

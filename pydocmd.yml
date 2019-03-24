@@ -6,6 +6,7 @@ generate:
           - queso.cli.factory.create_cli
       - queso.commands:
           - queso.commands.QuesoCommand
+          - queso.commands.QuesoGroup
           - queso.commands.FileGroup
           - queso.commands.CustomCommandsGroup
       - queso.utils:

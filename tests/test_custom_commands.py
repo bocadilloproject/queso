@@ -20,7 +20,7 @@ def test_init_custom_commands_in_dir(runner, tmpdir):
         assert item in output
 
     with open(join(str(tmpdir), "queso.py"), "r") as generated:
-        assert "import click" in generated.read()
+        assert "import queso" in generated.read()
 
 
 @pytest.fixture(name="custom_commands")
@@ -29,17 +29,18 @@ def fixture_custom_commands(tmpdir):
     file_.write(
         cleandoc(
             """
+    import queso
     import click
 
-    @click.group()
+    @queso.group()
     def animals():
         pass
 
-    @animals.command()
+    @queso.command()
     def cats():
         click.echo("Cats!")
 
-    @click.command(name="the-cars")
+    @queso.command(name="the-cars")
     def cars():
         click.echo("Cars!")
     """
@@ -70,7 +71,7 @@ def test_can_provide_custom_commands(
 
 def test_no_commands_allowed(tmpdir):
     boca_dot_py = tmpdir.join("queso.py")
-    boca_dot_py.write("import click")
+    boca_dot_py.write("import queso")
     create_cli()
 
 
