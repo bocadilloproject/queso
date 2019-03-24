@@ -59,15 +59,7 @@ module.exports = {
     ],
     sidebar: {
       "/guide/": [
-        {
-          title: "Getting started",
-          collapsable: false,
-          children: [
-            ["/guide/", "Introduction"],
-            "/guide/installation",
-            "/guide/basics"
-          ]
-        },
+        "",
         {
           title: "Techniques",
           collapsable: false,
