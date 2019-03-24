@@ -19,7 +19,7 @@ setuptools.setup(
     description=description,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=["queso"],
+    packages=setuptools.find_packages(),
     install_requires=["click"],
     url=DOCS,
     project_urls={
