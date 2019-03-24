@@ -10,3 +10,4 @@ node_modules/
 .coverage
 docs/.vuepress/dist
 .mypy_cache/
+debug/

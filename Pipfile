@@ -11,10 +11,9 @@ rope = "*"
 pytest-cov = "*"
 bocadillo = "*"
 pydoc-markdown = "*"
-queso = {editable = true,path = "."}
 
 [packages]
-click = "*"
+queso = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"
