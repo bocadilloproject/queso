@@ -22,21 +22,6 @@ Options:
 
 ## Available commands
 
-Queso ships with a certain number of built-in commands, which you can read more about in the [Built-in commands reference][built-in-commands].
+Queso ships with a certain number of **built-in commands**, which you can read more about in the [API reference](/reference/).
 
-```bash
-$ queso
-Usage: queso [OPTIONS] COMMAND [ARGS]...
-
-Options:
-  -v, -V, --version  Show the version and exit.
-  --help             Show this message and exit.
-
-Commands:
-  init:custom  Generate files required to build custom commands.
-  version      Show version information and exit.
-```
-
-An important feature of Queso is being very easy to extend. You can write your custom commands and use them just like the built-ins. You can read more about custom commands in the next section.
-
-[built-in-commands]: ../reference/README.md#built-in-commands
+You can also write your **custom commands** and use them just like the built-in ones. Read more about this in the next section!
