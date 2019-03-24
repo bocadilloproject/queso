@@ -1,10 +1,15 @@
 site_name: "" # Irrelevant to us.
 
 generate:
-  - cli.md:
-      - queso.cli+
-  - utils.md:
-      - queso.utils+
+  - index.md:
+      - queso.cli:
+          - queso.cli.factory.create_cli
+      - queso.commands:
+          - queso.commands.QuesoCommand
+          - queso.commands.FileGroup
+          - queso.commands.CustomCommandsGroup
+      - queso.utils:
+          - queso.utils.call_command
 
 # Required by Pydoc-Markdown, but irrelevant to us.
 pages: []

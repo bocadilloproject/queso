@@ -62,25 +62,48 @@ __Returns__
 
 `cli (click.Command)`: contains both built-in and custom commands.
 
-###  queso.constants
+###  queso.commands
 
 
-This module contains various useful constants, listed below.
+
+####  QuesoCommand
+
+
 ```python
-CUSTOM_COMMANDS_ENV_VAR = "QUESO_COMMANDS"
-DEFAULT_CUSTOM_COMMANDS = "queso.py"
+QuesoCommand(self, name, context_settings=None, callback=None, params=None, help=None, epilog=None, short_help=None, options_metavar='[OPTIONS]', add_help_option=True, hidden=False, deprecated=False)
 ```
+Base class for Queso commands.
+####  FileGroup
+
+
+```python
+FileGroup(self, path: str, *args, **kwargs)
+```
+A Click [MultiCommand] that loads commands declared in a file.
+
+[MultiCommand]: http://click.palletsprojects.com/en/7.x/api/#click.MultiCommand
+
+__Parameters__
+
+- __path (str)__:
+    Path to a Python module declaring Click commands (declared with
+    `@click.command()` or `@click.group()`).
+
+####  CustomCommandsGroup
+
+
+```python
+CustomCommandsGroup(self, *args, **kwargs)
+```
+A [FileGroup](#filegroup) which looks for custom commands.
+
+The custom commands file is `./queso.py` by default. This can be
+overridden by setting the `QUESO_COMMANDS` environment variable.
+
 ###  queso.utils
 
 
 
-####  CommandResult
-
-
-```python
-CommandResult(self, /, *args, **kwargs)
-```
-CommandResult(exit_code, value, output)
 ####  call_command
 
 

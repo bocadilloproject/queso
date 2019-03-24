@@ -3,12 +3,10 @@ import subprocess
 from glob import glob
 from typing import List
 from os.path import join
-import inspect
 
 import yaml
 
 from queso.cli import create_cli
-from queso import constants
 
 
 def get_help(cmd: List[str]):
@@ -23,15 +21,6 @@ def main():
         api_ref_dir = yaml.safe_load(cfg)["gens_dir"]
 
     subprocess.call(["pydocmd", "generate"])
-
-    with open(join(api_ref_dir, "constants.md"), "w") as constants_out:
-        constants_out.write("# queso.constants\n")
-        constants_out.write(
-            "This module contains various useful constants, listed below.\n"
-        )
-        constants_out.write(
-            "\n".join(["```python", inspect.getsource(constants) + "```", ""])
-        )
 
     cli = create_cli()
 
