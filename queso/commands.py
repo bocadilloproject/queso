@@ -1,6 +1,7 @@
 import os
 
 import click
+import runpy
 
 
 class QuesoCommand(click.Command):
@@ -33,20 +34,15 @@ class FileGroup(click.Group):
         self._load_group(path)
 
     def _load_group(self, path: str):
-        namespace = {}
-
         try:
-            with open(path, "r") as f:
-                code = compile(source=f.read(), filename=path, mode="exec")
+            namespace = runpy.run_path(path)
         except FileNotFoundError:
             # User did not create custom commands
             return
         else:
-            eval(code, namespace, namespace)
-
-        for value in namespace.values():
-            if isinstance(value, click.Command):
-                self.add_command(value)
+            for value in namespace.values():
+                if isinstance(value, click.Command):
+                    self.add_command(value)
 
 
 class CustomCommandsGroup(FileGroup):
