@@ -27,18 +27,17 @@ def call_command(
     Exit code is `0` if the command exits successfully (regardless of its return value), or `1` if a non-Click exception occurs. For other situations, the original Click behavior is honored.
 
     # Parameters
-    name (str):
-        The name of the command to call, e.g. `"version"`.
-    *args (str):
-        A series of command line parameters to be parsed.
+    name (str): the name of the command to call, e.g. `"version"`.
+    *args (str): a series of command line parameters to be parsed.
     capture_errors (bool):
-        `True`, Click exceptions are silenced and written to the captured stdout. Note that other exceptions will still propagate. Defaults to `False`.
+        if `True`, Click exceptions are silenced and written to the captured stdout. Note that other exceptions will still propagate. Defaults to `False`.
     cli (click.Command):
-        The Click CLI application instance to use. Defaults to `create_cli()`.
+        the Click CLI application instance to use.
+        Defaults to `create_cli()`.
 
     # Returns
     result (CommandResult):
-        Holds the `exit_code` (int), its return `value`,
+        holds the `exit_code` (int), its return `value`,
         and the captured `output` (str).
 
     # Example
