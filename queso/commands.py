@@ -1,4 +1,5 @@
 import os
+from typing import Any, List, TypeVar
 
 import click
 import runpy
@@ -17,7 +18,7 @@ class Command(click.Command):
 
     include_options_metavar = True
 
-    def collect_usage_pieces(self, ctx):
+    def collect_usage_pieces(self, ctx: click.Context) -> List[str]:
         rv = [self.options_metavar] if self.include_options_metavar else []
         for param in self.get_params(ctx):
             if param.nargs == -1:
@@ -44,7 +45,7 @@ class FileGroup(Group):
         (declared with `@queso.command()` or `@queso.group()`).
     """
 
-    def __init__(self, path: str, *args, **kwargs):
+    def __init__(self, path: str, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
 
         try:
@@ -65,19 +66,38 @@ class CustomCommandsGroup(FileGroup):
     overridden by setting the `QUESO_COMMANDS` environment variable.
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any):
         super().__init__(self.path(), *args, **kwargs)
 
     @staticmethod
-    def path():
+    def path() -> str:
         return os.getenv("QUESO_COMMANDS", "queso.py")
 
 
-def command(name: str = None, **kwargs) -> Command:
-    """Replacement for `click.command()` with `Command` as a base class."""
-    return click.command(name=name, cls=Command, **kwargs)
+C = TypeVar("C", bound=Command)
+G = TypeVar("G", bound=Group)
 
 
-def group(name: str = None, **kwargs) -> Group:
-    """Replacement for `click.group()` with `Group` as a base class."""
-    return click.group(name=name, cls=Group, **kwargs)
+def command(
+    name: str = None, cls: C = None, **kwargs: Any
+) -> Callable[[Callable], C]:
+    """Replacement for `@click.command()`.
+    
+    Uses `Command` as a default base class.
+    """
+    if cls is None:
+        cls = Command
+    return click.command(name=name, cls=cls, **kwargs)
+
+
+def group(
+    name: str = None, cls: G = None, **kwargs: Any
+) -> Callable[[Callable], G]:
+    """Replacement for `click.group()`.
+    
+    Uses `Group` as a default base class.
+    """
+    if cls is None:
+        cls = Group
+    return click.group(name=name, cls=cls, **kwargs)
+
