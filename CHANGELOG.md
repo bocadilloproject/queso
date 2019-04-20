@@ -8,7 +8,9 @@ The format of this document is based on [Keep a Changelog](https://keepachangelo
 
 Queso adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [v0.2.1] - 2019-04-20
+
+Queso is now unmaintained. Please use [Bocadillo CLI](https://github.com/bocadilloproject/bocadillo-cli) instead.
 
 ## [v0.2.0] - 2019-02-18
 
@@ -44,7 +46,7 @@ Relative to Bocadillo v0.10.1:
 
 Initial release to PyPI.
 
-[unreleased]: https://github.com/bocadilloproject/queso/compare/v0.2.0...HEAD
+[v0.2.1]: https://github.com/bocadilloproject/queso/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/bocadilloproject/queso/compare/v0.1.1...v0.2.0
 [v0.1.1]: https://github.com/bocadilloproject/queso/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/bocadilloproject/queso/compare/v0.0.1...v0.1.0
