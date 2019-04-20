@@ -34,7 +34,7 @@ pip install queso
 
 ```bash
 $ queso -V
-Queso: 0.2.0
+Queso: 0.2.1
 Bocadillo: 0.13.1
 Python: 3.7.2
 OS: Darwin-18.2.0-x86_64-i386-64bit
